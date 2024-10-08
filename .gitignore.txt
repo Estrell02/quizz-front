@@ -1,0 +1,51 @@
+# Fichiers Node.js
+node_modules/
+# Fichiers temporaires npm
+npm-debug.log*
+package-lock.json
+
+# Répertoire de sortie Angular
+dist/
+out-tsc/
+
+# Dossiers de builds et configuration Angular
+.angular/
+.angular-cache/
+
+# Fichiers liés à la configuration environnementale
+src/environments/
+
+# Fichiers de compilation TypeScript
+*.tsbuildinfo
+
+# Fichiers temporaires de test
+/coverage/
+**/test-results/
+
+# Logs et rapports de build
+*.log
+*.zip
+
+# Configuration IDE (VSCode, JetBrains, etc.)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Système OS (macOS/Linux)
+.DS_Store
+Thumbs.db
+
+# Fichiers cache pour l'intégration continue (CI)
+.ci/
+
+# Fichiers de configuration spécifiques à Angular
+# (uniquement si tu les veux hors du dépôt)
+karma.conf.js
+protractor.conf.js
+
+# Fichiers liés aux scripts
+scripts/
