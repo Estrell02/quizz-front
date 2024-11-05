@@ -1,0 +1,17 @@
+<!-- score.component.html -->
+
+<div class="score-container">
+    <h2>Votre Score</h2>
+  
+    <div class="score-summary">
+      <p><strong>Score final:</strong> {{ score }} / {{ totalQuestions }}</p>
+      <p><strong>Questions correctes:</strong> {{ correctAnswers }}</p>
+      <p><strong>Temps écoulé:</strong> {{ timeElapsed }} secondes</p>
+    </div>
+  
+    <div class="actions">
+      <button (click)="restartQuiz()">Recommencer le quiz</button>
+      <button (click)="goHome()">Retour à l'accueil</button>
+    </div>
+  </div>
+  
