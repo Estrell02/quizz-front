@@ -1,1 +1,44 @@
-<p>quizgame works!</p>
+<div class="quiz-container">
+  <h2 class="title">Create a new game</h2>
+
+  <!-- Sélectionner une catégorie -->
+  <div class="category-selection">
+    <label for="categories" class="label">Choisissez un thème :</label>
+    <select id="categories" (change)="onCategorySelect($event)" class="select-box">
+      <option value="" disabled selected>Choisir un thème...</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+
+  <!-- Message de chargement des questions -->
+  <div *ngIf="isLoadingQuestions" class="loading-container">
+    <p class="loading-text">Veuillez patienter, les questions se chargent...</p>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Questions à sélectionner -->
+  <div *ngIf="questions.length > 0 && isQuizStarted" class="question-selection">
+    <h3 class="subtitle">Choose 10 questions</h3>
+    <div *ngFor="let question of questions" class="question-item">
+      <input
+        type="checkbox"
+        [checked]="selectedQuestions.includes(question)"
+        (change)="toggleQuestionSelection(question)"
+        [disabled]="!selectedQuestions.includes(question) && selectedQuestions.length >= maxSelectableQuestions"
+        class="checkbox"
+      />
+      <span class="question-text">{{ question.question }}</span> <!-- Affichage de la question décodée -->
+    </div>
+
+    <p *ngIf="selectedQuestions.length === maxSelectableQuestions" class="confirmation-text">
+      10 questions sélectionnées.
+    </p>
+    <button
+      (click)="saveGame()"
+      [disabled]="selectedQuestions.length !== maxSelectableQuestions"
+      class="save-button"
+    >
+      save the game
+    </button>
+  </div>
+</div>

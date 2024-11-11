@@ -20,13 +20,13 @@ import { Question } from '../interfaces/question';
 export class QuizComponent  implements OnInit {
   categories: any[] = [];
   isQuizStarted: boolean = false;
-  // questions: Question[] = [];
+ 
   questions: (Question & { shuffledOptions: string[] })[] = [];
   currentQuestionIndex: number = 0;
   userAnswer: string = '';
   @Output() score: number = 0;
   isQuizFinished: boolean = false;
-  timeRemaining: number = 30; // Durée du timer en secondes
+  timeRemaining: number = 100; 
   timer: any;
 
   constructor(private triviaService: TriviaService, private quizService:QuizService
@@ -69,7 +69,7 @@ export class QuizComponent  implements OnInit {
   }
 
   shuffleOptions(options: string[]): string[] {
-    const shuffled = [...options];  // Crée une copie pour ne pas modifier l'original
+    const shuffled = [...options];  
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -89,15 +89,15 @@ export class QuizComponent  implements OnInit {
     if (selectedAnswer === this.questions[this.currentQuestionIndex].correct_answer) {
       this.score++;
     }
-    this.nextQuestion(); // Passer à la question suivante après avoir répondu
+    this.nextQuestion(); 
   }
 
   nextQuestion(): void {
     this.currentQuestionIndex++;
-    this.timeRemaining = 30; // Réinitialiser le timer pour la prochaine question
+    
 
     if (this.currentQuestionIndex >= this.questions.length) {
-      this.finishQuiz(); // Si toutes les questions ont été posées, terminer le quiz
+      this.finishQuiz();
     }
   }
 
@@ -105,15 +105,14 @@ export class QuizComponent  implements OnInit {
     clearInterval(this.timer);
     this.isQuizFinished = true;
   
-    // Temps total écoulé pour les questions
-    const totalTimeElapsed = 10 * 30 - this.timeRemaining; // Supposons 10 questions avec un timer de 30 secondes
-  
+
+   
     this.router.navigate(['/score'], {
       queryParams: {
         score: this.score,
-        correctAnswers: this.score, // Utilise `score` pour le nombre de bonnes réponses
+        correctAnswers: this.score, 
         totalQuestions: this.questions.length,
-        timeElapsed: totalTimeElapsed,
+        timeElapsed: 100 - this.timeRemaining,
         
       },
     });
@@ -124,7 +123,7 @@ export class QuizComponent  implements OnInit {
     this.currentQuestionIndex = 0;
     this.score = 0;
     this.isQuizFinished = false;
-    this.timeRemaining = 30; // Réinitialiser le timer
+    this.timeRemaining = 100; // Réinitialiser le timer
   }
 
   

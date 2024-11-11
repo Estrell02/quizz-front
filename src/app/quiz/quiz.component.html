@@ -1,19 +1,19 @@
 <div *ngIf="!isQuizStarted">
-  <h2>Choisissez un thème</h2>
+  <h2>Choose a theme</h2>
   <div class="categories">
     <div 
       *ngFor="let category of categories" 
       class="category-card" 
       (click)="onCategorySelect(category.id)"
     >
-      <img src="assets/Q3.jpg" alt="{{category.name}}" class="category-image"/>
+      <img src="assets/Q4.jpg" alt="{{category.name}}" class="category-image"/>
       <p>{{ category.name }}</p>
     </div>
   </div>
 </div>
 
 <div *ngIf="isQuizStarted" class="quiz-container">
-  <!-- <h2>Quiz en cours...</h2> -->
+
   <div class="timer">
     <p>Time: <span>{{ timeRemaining }} seconds</span></p>
   </div>
@@ -28,5 +28,5 @@
       </button>
     </div>
   <button class="next-button" *ngIf="currentQuestionIndex < questions.length - 1" 
-          (click)="nextQuestion()">Suivant</button>
+          (click)="nextQuestion()">Next</button>
 </div>

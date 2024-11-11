@@ -4,11 +4,14 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { QuizComponent } from '../quiz/quiz.component';
+import { QuizgameComponent } from '../quizgame/quizgame.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports:[HomeComponent, LoginComponent, RegisterComponent, RouterLink, RouterOutlet, QuizComponent],
+  imports:[HomeComponent, LoginComponent, RegisterComponent, RouterLink, RouterOutlet, QuizComponent,
+    QuizgameComponent
+  ],
   
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'

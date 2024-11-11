@@ -18,18 +18,18 @@ export class HomeComponent implements OnInit {
   constructor(private quizService: QuizService ) {}
 
   ngOnInit(): void {
-    this.fetchLastScore();
+    // this.fetchLastScore();
   }
 
-  fetchLastScore(): void {
-    this.quizService.getLastScore().subscribe(
-      (score) => {
-        this.lastScore = score;
-      },
-      (error) => {
-        console.error('Error fetching last score:', error);
-      }
-    );
-  }
+  // fetchLastScore(): void {
+  //   this.quizService.getLastScore().subscribe(
+  //     (score) => {
+  //       this.lastScore = score;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching last score:', error);
+  //     }
+  //   );
+  // }
   
 }

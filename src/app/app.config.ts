@@ -5,9 +5,7 @@ import { provideRouter, RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
 
 
 export const appConfig: ApplicationConfig = {
@@ -16,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideAnimationsAsync(),
+    provideHttpClient(),
     RouterModule
    
     
@@ -24,4 +23,8 @@ export const appConfig: ApplicationConfig = {
 };
 
 
+
+// function provideHttpClient(): import("@angular/core").Provider | import("@angular/core").EnvironmentProviders {
+//   throw new Error('Function not implemented.');
+// }
 

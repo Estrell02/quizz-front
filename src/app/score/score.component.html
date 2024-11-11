@@ -1,17 +1,30 @@
-<!-- score.component.html -->
+
 
 <div class="score-container">
-    <h2>Votre Score</h2>
-  
-    <div class="score-summary">
-      <p><strong>Score final:</strong> {{ score }} / {{ totalQuestions }}</p>
-      <p><strong>Questions correctes:</strong> {{ correctAnswers }}</p>
-      <p><strong>Temps écoulé:</strong> {{ timeElapsed }} secondes</p>
-    </div>
-  
-    <div class="actions">
-      <button (click)="restartQuiz()">Recommencer le quiz</button>
-      <button (click)="goHome()">Retour à l'accueil</button>
-    </div>
+  <h2>Quiz Result</h2>
+
+  <div *ngIf="score < 5" class="result low-score">
+      <img src="assets/low-score.jpeg" alt="Low score image" class="result-image"/>
+      <p>Oh no! Your score is low. Keep practicing!</p>
   </div>
-  
+  <div *ngIf="score >= 5 && score <= 7" class="result medium-score">
+      <img src="assets/high-score.jpg" alt="Medium score image" class="result-image"/>
+      <p>Well done! You're on the right track, keep it up!</p>
+  </div>
+  <div *ngIf="score > 7" class="result high-score">
+      <img src="assets/best-score.jpg" alt="High score image" class="result-image"/>
+      <p>Excellent job! You've mastered the quiz!</p>
+  </div>
+
+
+  <div class="score-summary">
+      <p><strong>Score :</strong> {{ score }} / {{ totalQuestions }}</p>
+      <p><strong>Elapsed time:</strong> {{ timeElapsed }} seconds</p>
+  </div>
+
+  <div class="actions">
+      <button (click)="restartQuiz()">Start a new quiz</button>
+      <button (click)="goHome()">Back home</button>
+  </div>
+</div>
+

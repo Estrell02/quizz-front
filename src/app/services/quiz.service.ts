@@ -12,9 +12,7 @@ export class QuizService {
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/categories`);
-  }
+  
 
   getQuestions(categoryId: number, amount: number = 10, difficulty: string = 'medium'): Observable<any> {
     return this.http.get<any>(`https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple&encode=base64`);
@@ -23,7 +21,7 @@ export class QuizService {
     return options.sort(() => Math.random() - 0.5);  
   }
 
-  getLastScore(): Observable<number> {
-    return this.http.get<number>(`${this.apiUrl}/user/last-score`);
-  }
+  // getLastScore(): Observable<number> {
+  //   return this.http.get<number>(`${this.apiUrl}/user/last-score`);
+  // }
 }

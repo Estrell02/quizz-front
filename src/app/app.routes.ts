@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { ScoreComponent } from './score/score.component';
 import { ListscoresComponent } from './listscores/listscores.component';
+import { QuizgameComponent } from './quizgame/quizgame.component';
 
 
 export const routes: Routes = [
@@ -17,5 +18,7 @@ export const routes: Routes = [
   { path: 'quiz', component: QuizComponent },
   { path: 'score', component: ScoreComponent },
   { path: 'listscores', component: ListscoresComponent },
+  { path: 'quizgame', component: QuizgameComponent },
+  { path: '', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];
